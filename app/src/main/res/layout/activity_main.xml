@@ -9,7 +9,7 @@
 
         <fragment
             android:id="@+id/startFragment"
-            android:name="buu.informatics.s59160575.iqtest.nameFragment"
+            android:name="buu.informatics.s59160575.iqtest.GameFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             />

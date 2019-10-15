@@ -7,4 +7,10 @@
     <string name="start_text">ลับสมองประลองปัญญา!!</string>
     <string name="entername_text">Please enter your name</string>
     <string name="start_button">START</string>
+    <string name="score_text">SCORE   BOARD</string>
+    <string name="name_text">1.  Kavin</string>
+    <string name="final_score_text">140</string>
+    <string name="clear_score_button">CLEAR SCORE</string>
+    <string name="main_menu_button">MAIN MENU</string>
+    <string name="question_text">Question   1  of  12</string>
 </resources>

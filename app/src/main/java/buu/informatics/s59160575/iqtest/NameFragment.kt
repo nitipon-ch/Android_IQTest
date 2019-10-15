@@ -7,18 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import buu.informatics.s59160575.iqtest.databinding.FragmentStartBinding
+import buu.informatics.s59160575.iqtest.databinding.FragmentNameBinding
 
 /**
  * A simple [Fragment] subclass.
  */
-class StartFragment : Fragment() {
-    private lateinit var binding: FragmentStartBinding
+class NameFragment : Fragment() {
+    private lateinit var binding: FragmentNameBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_start,container,false)
+        // Inflate the layout for this fragment
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_name, container, false)
         return binding.root
     }
 
