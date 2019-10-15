@@ -13,4 +13,8 @@
     <string name="clear_score_button">CLEAR SCORE</string>
     <string name="main_menu_button">MAIN MENU</string>
     <string name="question_text">Question   1  of  12</string>
+    <string name="name_result_text">Hey!!  Kevin</string>
+    <string name="name_result_text2">your IQ score is</string>
+    <string name="score_result_text">140</string>
+    <string name="main_menu_result_button">MAIN MENU</string>
 </resources>
