@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import buu.informatics.s59160575.iqtest.databinding.FragmentResultBinding
 
 /**
@@ -20,6 +21,9 @@ class ResultFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_result, container, false)
+        binding.mainMenuResultButton.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_resultFragment_to_startFragment)
+        }
         return binding.root
     }
 

@@ -24,6 +24,10 @@ class StartFragment : Fragment() {
         binding.letStartButton.setOnClickListener { view ->
                 view.findNavController().navigate(R.id.action_startFragment_to_nameFragment)
         }
+
+        binding.highScoreButton.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_startFragment_to_scoreFragment)
+        }
         return binding.root
     }
 
