@@ -8,10 +8,12 @@
         tools:context=".MainActivity">
 
         <fragment
-            android:id="@+id/startFragment"
-            android:name="buu.informatics.s59160575.iqtest.ResultFragment"
+            android:id="@+id/myNavHostFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:navGraph="@navigation/navigation"
+            app:defaultNavHost="true"
             />
 
     </LinearLayout>

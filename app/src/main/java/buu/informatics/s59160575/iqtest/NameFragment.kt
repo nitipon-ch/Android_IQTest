@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import buu.informatics.s59160575.iqtest.databinding.FragmentNameBinding
 
 /**
@@ -20,6 +21,10 @@ class NameFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_name, container, false)
+        binding.startButton.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_nameFragment_to_gameFragment)
+        }
+
         return binding.root
     }
 
