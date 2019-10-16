@@ -9,7 +9,8 @@
         android:id="@+id/startFragment"
         android:name="buu.informatics.s59160575.iqtest.StartFragment"
         android:label="StartFragment"
-        tools:layout="@layout/fragment_start">
+        tools:layout="@layout/fragment_start"
+        >
         <action
             android:id="@+id/action_startFragment_to_nameFragment"
             app:destination="@id/nameFragment" />
@@ -20,7 +21,8 @@
     <fragment
         android:id="@+id/nameFragment"
         android:name="buu.informatics.s59160575.iqtest.NameFragment"
-        android:label="NameFragment" >
+        android:label="NameFragment"
+        tools:layout="@layout/fragment_name">
         <action
             android:id="@+id/action_nameFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
@@ -28,7 +30,8 @@
     <fragment
         android:id="@+id/gameFragment"
         android:name="buu.informatics.s59160575.iqtest.GameFragment"
-        android:label="GameFragment" >
+        android:label="GameFragment"
+        tools:layout="@layout/fragment_game">
         <action
             android:id="@+id/action_gameFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
@@ -36,7 +39,8 @@
     <fragment
         android:id="@+id/resultFragment"
         android:name="buu.informatics.s59160575.iqtest.ResultFragment"
-        android:label="ResultFragment" >
+        android:label="ResultFragment"
+        tools:layout="@layout/fragment_result">
         <action
             android:id="@+id/action_resultFragment_to_startFragment"
             app:destination="@id/startFragment" />
@@ -44,7 +48,8 @@
     <fragment
         android:id="@+id/scoreFragment"
         android:name="buu.informatics.s59160575.iqtest.ScoreFragment"
-        android:label="ScoreFragment" >
+        android:label="ScoreFragment"
+        tools:layout="@layout/fragment_score">
         <action
             android:id="@+id/action_scoreFragment_to_startFragment"
             app:destination="@id/startFragment" />

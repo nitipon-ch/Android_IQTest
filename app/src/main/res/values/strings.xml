@@ -18,4 +18,5 @@
     <string name="score_result_text">140</string>
     <string name="main_menu_result_button">MAIN MENU</string>
     <string name="high_score_button">HIGH SCORE</string>
+    <string name="name_hint">Your name</string>
 </resources>
