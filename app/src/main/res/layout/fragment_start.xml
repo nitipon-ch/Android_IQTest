@@ -11,8 +11,8 @@
 
         <ImageView
             android:id="@+id/brainPics"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="310dp"
+            android:layout_height="233dp"
             android:layout_marginTop="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +26,7 @@
             android:layout_marginTop="35dp"
             android:text="@string/start_text"
             android:textSize="35sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/brainPics" />
@@ -49,15 +50,18 @@
             android:id="@+id/highScoreButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:background="@color/colorPrimary"
             android:paddingStart="100dp"
             android:paddingEnd="100dp"
-            android:text="HIGH SCORE"
+            android:text="@string/high_score_button"
             android:textColor="@android:color/background_light"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/letStartButton" />
+            app:layout_constraintTop_toBottomOf="@+id/letStartButton"
+            app:layout_constraintVertical_bias="0.066" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
