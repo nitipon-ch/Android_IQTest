@@ -3,9 +3,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/forest"
         tools:context=".ResultFragment">
 
         <ImageView
@@ -26,6 +28,7 @@
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
             android:text="@string/name_result_text"
+            android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +43,7 @@
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
             android:text="@string/name_result_text2"
+            android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
