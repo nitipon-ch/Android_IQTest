@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
@@ -23,7 +24,7 @@ class GameFragment : Fragment() {
         Question(image = R.drawable.question_two,
             answers = listOf(R.drawable.ans2_1, R.drawable.ans2_2, R.drawable.ans2_3, R.drawable.ans2_4)),
         Question(image = R.drawable.question_three,
-            answers = listOf(R.drawable.ans1_1, R.drawable.ans1_2, R.drawable.ans1_3, R.drawable.ans1_4))
+            answers = listOf(R.drawable.ans3_1, R.drawable.ans3_2, R.drawable.ans3_3, R.drawable.ans3_4))
 
     )
 
@@ -83,6 +84,19 @@ class GameFragment : Fragment() {
         answers = currentQuestion.answers.toMutableList()
         answers.shuffle()
         imageQuestion.setImageResource(currentQuestion.image)
+        setAnswers()
+    }
+
+    private fun setAnswers() {
+        val ImageButton1 : Button = binding.answerButton1
+        val ImageButton2 : Button = binding.answerButton2
+        val ImageButton3 : Button = binding.answerButton3
+        val ImageButton4 : Button = binding.answerButton4
+
+        ImageButton1.setBackgroundResource(answers[0])
+        ImageButton2.setBackgroundResource(answers[1])
+        ImageButton3.setBackgroundResource(answers[2])
+        ImageButton4.setBackgroundResource(answers[3])
     }
 
 
