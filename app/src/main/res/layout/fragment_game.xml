@@ -11,7 +11,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/questionView"
             android:layout_width="302dp"
             android:layout_height="224dp"
             android:layout_marginTop="30dp"
@@ -39,12 +39,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/ans2"
+            android:background="@drawable/ans1_2"
             app:layout_constraintBottom_toTopOf="@+id/answerButton4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/answerButton1"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/questionView" />
 
         <Button
             android:id="@+id/answerButton1"
@@ -52,12 +52,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/ans1"
+            android:background="@drawable/ans1_1"
             app:layout_constraintBottom_toTopOf="@+id/answerButton3"
             app:layout_constraintEnd_toStartOf="@+id/answerButton2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/questionView" />
 
         <Button
             android:id="@+id/answerButton4"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/ans4"
+            android:background="@drawable/ans1_4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/ans3"
+            android:background="@drawable/ans1_3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/answerButton4"
             app:layout_constraintStart_toStartOf="parent"

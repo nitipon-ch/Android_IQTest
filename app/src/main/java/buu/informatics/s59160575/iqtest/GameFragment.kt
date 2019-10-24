@@ -6,14 +6,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import buu.informatics.s59160575.iqtest.databinding.FragmentGameBinding
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class GameFragment : Fragment() {
+    data class Question(
+        val image: Int,
+        val answers: List<Int>)
+
+    private val questions: MutableList<Question> = mutableListOf(
+        Question(image = R.drawable.question_one,
+            answers = listOf(R.drawable.ans1_1, R.drawable.ans1_2, R.drawable.ans1_3, R.drawable.ans1_4)),
+        Question(image = R.drawable.question_two,
+            answers = listOf(R.drawable.ans2_1, R.drawable.ans2_2, R.drawable.ans2_3, R.drawable.ans2_4)),
+        Question(image = R.drawable.question_three,
+            answers = listOf(R.drawable.ans1_1, R.drawable.ans1_2, R.drawable.ans1_3, R.drawable.ans1_4))
+
+    )
+
+    lateinit var currentQuestion: Question
+    lateinit var answers: MutableList<Int>
+    private var questionIndex = 0
+    private val numQuestions = Math.min((questions.size + 1) / 2, 3)
+
     private lateinit var binding: FragmentGameBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,8 +39,22 @@ class GameFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_game, container, false)
+
+        randomizeQuestions()
+
+
+
         binding.answerButton1.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+           if (questionIndex == questions.size-1){
+               view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+           }else{
+               questionIndex++
+               currentQuestion = questions[questionIndex]
+               setQuestion()
+               binding.invalidateAll()
+           }
+
+
         }
         binding.answerButton2.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
@@ -35,6 +67,22 @@ class GameFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun randomizeQuestions() {
+        questions.shuffle()
+        questionIndex = 0
+        setQuestion()
+    }
+
+    private fun setQuestion(){
+        val imageQuestion : ImageView = binding.questionView
+
+        currentQuestion = questions[questionIndex]
+
+        answers = currentQuestion.answers.toMutableList()
+        answers.shuffle()
+        imageQuestion.setImageResource(currentQuestion.image)
     }
 
 
