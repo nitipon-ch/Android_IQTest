@@ -26,7 +26,15 @@ class GameFragment : Fragment() {
         Question(image = R.drawable.question_two,
             answers = listOf(R.drawable.ans2_1, R.drawable.ans2_2, R.drawable.ans2_3, R.drawable.ans2_4)),
         Question(image = R.drawable.question_three,
-            answers = listOf(R.drawable.ans3_1, R.drawable.ans3_2, R.drawable.ans3_3, R.drawable.ans3_4))
+            answers = listOf(R.drawable.ans3_1, R.drawable.ans3_2, R.drawable.ans3_3, R.drawable.ans3_4)),
+        Question(image = R.drawable.question_four,
+            answers = listOf(R.drawable.ans4_1, R.drawable.ans4_2, R.drawable.ans4_3, R.drawable.ans4_4)),
+        Question(image = R.drawable.question_five,
+            answers = listOf(R.drawable.ans5_1, R.drawable.ans5_2, R.drawable.ans5_3, R.drawable.ans5_4)),
+        Question(image = R.drawable.question_six,
+            answers = listOf(R.drawable.ans6_1, R.drawable.ans6_2, R.drawable.ans6_3, R.drawable.ans6_4)),
+        Question(image = R.drawable.question_seven,
+            answers = listOf(R.drawable.ans7_1, R.drawable.ans7_2, R.drawable.ans7_3, R.drawable.ans7_4))
 
     )
 
