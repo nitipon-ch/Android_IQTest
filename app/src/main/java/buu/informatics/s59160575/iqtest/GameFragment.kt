@@ -44,9 +44,8 @@ class GameFragment : Fragment() {
         randomizeQuestions()
 
 
-
         binding.answerButton1.setOnClickListener { view ->
-           if (questionIndex == questions.size-1){
+           if (questionIndex >= questions.size-1){
                view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
            }else{
                questionIndex++
