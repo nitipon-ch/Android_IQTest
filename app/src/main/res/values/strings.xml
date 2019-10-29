@@ -25,4 +25,6 @@
     <string name="about_text">ลับสมองประลองปัญญาเป็นเกมแนว Quiz \n\nซึ่งเกี่ยวกับการประเมิณ IQ มี 12 คำถามกับ \n\n4 ตัวเลือก</string>
     <string name="about_menu">about</string>
     <string name="hey_text">Hey!!</string>
+    <string name="share_item">share</string>
+    <string name="share_success_text">My name is %1$s. My IQ Score %2$d!! From ลับสมองประลองปัญญา App</string>
 </resources>

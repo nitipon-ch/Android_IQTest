@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/share"
+        android:enabled="true"
+        android:icon="@drawable/share"
+        android:title="@string/share_item"
+        android:visible="true"
+        app:showAsAction="ifRoom"
+        tools:icon="@drawable/share"
+        tools:visible="true" />
+</menu>

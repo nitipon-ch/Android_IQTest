@@ -2,6 +2,7 @@ package buu.informatics.s59160575.iqtest
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
@@ -43,6 +44,37 @@ class StartFragment : Fragment() {
             view!!.findNavController())
                 || super.onOptionsItemSelected(item)
     }
+
+    override fun onStart() {
+        super.onStart()
+
+        Log.i("StartFragment", "OnStart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        Log.i("StartFragment", "OnResume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        Log.i("StartFragment", "OnPause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        Log.i("StartFragment", "OnStop called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        Log.i("StartFragment", "OnDestroy called")
+    }
+
 
 
 }
