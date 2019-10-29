@@ -13,7 +13,7 @@
     <string name="clear_score_button">CLEAR SCORE</string>
     <string name="main_menu_button">MAIN MENU</string>
     <string name="question_text">Question   1  of  12</string>
-    <string name="name_result_text">Hey!!  Kevin</string>
+    <string name="name_result_text">Kevin</string>
     <string name="name_result_text2">your IQ score is</string>
     <string name="score_result_text">140</string>
     <string name="main_menu_result_button">MAIN MENU</string>
@@ -24,4 +24,5 @@
     <string name="about_title_text">ABOUT</string>
     <string name="about_text">ลับสมองประลองปัญญาเป็นเกมแนว Quiz \n\nซึ่งเกี่ยวกับการประเมิณ IQ มี 12 คำถามกับ \n\n4 ตัวเลือก</string>
     <string name="about_menu">about</string>
+    <string name="hey_text">Hey!!</string>
 </resources>

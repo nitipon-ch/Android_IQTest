@@ -16,6 +16,7 @@ import buu.informatics.s59160575.iqtest.databinding.FragmentStartBinding
  */
 class ScoreFragment : Fragment() {
     private lateinit var binding: FragmentScoreBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

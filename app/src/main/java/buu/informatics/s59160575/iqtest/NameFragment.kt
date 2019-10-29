@@ -25,7 +25,7 @@ class NameFragment : Fragment() {
         binding.startButton.setOnClickListener { view ->
             var username = binding.nameEditText.text.toString()
             if(username.isEmpty()){
-                Toast.makeText(getActivity(), "Please Input your name", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Please Input your name", Toast.LENGTH_LONG).show()
             }else{
                 view.findNavController().navigate(NameFragmentDirections.actionNameFragmentToGameFragment( username ))
             }
