@@ -23,10 +23,11 @@ class NameFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_name, container, false)
         binding.startButton.setOnClickListener { view ->
-            if(binding.nameEditText.text.toString().isEmpty()){
+            var username = binding.nameEditText.text.toString()
+            if(username.isEmpty()){
                 Toast.makeText(getActivity(), "Please Input your name", Toast.LENGTH_LONG).show()
             }else{
-                view.findNavController().navigate(R.id.action_nameFragment_to_gameFragment)
+                view.findNavController().navigate(NameFragmentDirections.actionNameFragmentToGameFragment( username ))
             }
 
         }

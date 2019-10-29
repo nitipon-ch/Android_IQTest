@@ -37,6 +37,9 @@
             android:id="@+id/action_gameFragment_to_resultFragment"
             app:destination="@id/resultFragment"
             app:popUpTo="@+id/startFragment" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -51,6 +54,12 @@
             android:id="@+id/action_resultFragment_to_gameFragment2"
             app:destination="@+id/gameFragment"
             app:popUpTo="@+id/startFragment" />
+        <argument
+            android:name="scoreResult"
+            app:argType="integer" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/scoreFragment"

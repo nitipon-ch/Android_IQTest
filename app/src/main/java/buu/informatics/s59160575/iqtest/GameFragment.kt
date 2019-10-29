@@ -47,13 +47,15 @@ class GameFragment : Fragment() {
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<Int>
     private var questionIndex = 0
-    private var score = 0
+    var score : Int = 0
 
     private lateinit var binding: FragmentGameBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //get argument
+        val args = GameFragmentArgs.fromBundle(arguments!!)
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_game, container, false)
 
@@ -63,7 +65,7 @@ class GameFragment : Fragment() {
         binding.answerButton1.setOnClickListener { view ->
            if (questionIndex >= questions.size-1){
                checkScore(0)
-               view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+               view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToResultFragment( score , args.userName))
            }else{
                checkScore(0)
                questionIndex++
@@ -79,7 +81,7 @@ class GameFragment : Fragment() {
         binding.answerButton2.setOnClickListener { view ->
             if (questionIndex >= questions.size-1){
                 checkScore(1)
-                view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+                view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToResultFragment( score, args.userName ))
             }else{
                 checkScore(1)
                 questionIndex++
@@ -93,7 +95,7 @@ class GameFragment : Fragment() {
         binding.answerButton3.setOnClickListener { view ->
             if (questionIndex >= questions.size-1){
                 checkScore(2)
-                view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+                view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToResultFragment( score, args.userName ))
             }else{
                 checkScore(2)
                 questionIndex++
@@ -107,7 +109,7 @@ class GameFragment : Fragment() {
         binding.answerButton4.setOnClickListener { view ->
             if (questionIndex >= questions.size-1){
                 checkScore(3)
-                view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+                view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToResultFragment( score, args.userName ))
             }else{
                 checkScore(3)
                 questionIndex++
