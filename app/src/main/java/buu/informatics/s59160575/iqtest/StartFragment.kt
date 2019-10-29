@@ -22,11 +22,15 @@ class StartFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_start,container,false)
 
         binding.letStartButton.setOnClickListener { view ->
-                view.findNavController().navigate(R.id.action_startFragment_to_nameFragment)
+            view.findNavController().navigate(R.id.action_startFragment_to_nameFragment)
         }
 
         binding.highScoreButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_startFragment_to_scoreFragment)
+        }
+
+        binding.aboutButton.setOnClickListener{ view ->
+            view.findNavController().navigate(R.id.action_startFragment_to_aboutFragment)
         }
         return binding.root
     }

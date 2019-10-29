@@ -34,7 +34,13 @@ class GameFragment : Fragment() {
         Question(image = R.drawable.question_six,
             answers = listOf(R.drawable.ans6_1, R.drawable.ans6_2, R.drawable.ans6_3, R.drawable.ans6_4)),
         Question(image = R.drawable.question_seven,
-            answers = listOf(R.drawable.ans7_1, R.drawable.ans7_2, R.drawable.ans7_3, R.drawable.ans7_4))
+            answers = listOf(R.drawable.ans7_1, R.drawable.ans7_2, R.drawable.ans7_3, R.drawable.ans7_4)),
+        Question(image = R.drawable.question_eigth,
+            answers = listOf(R.drawable.ans8_1, R.drawable.ans8_2, R.drawable.ans8_3, R.drawable.ans8_4)),
+        Question(image = R.drawable.question_nine,
+            answers = listOf(R.drawable.ans9_1, R.drawable.ans9_2, R.drawable.ans9_3, R.drawable.ans9_4)),
+        Question(image = R.drawable.question_ten,
+            answers = listOf(R.drawable.ans10_1, R.drawable.ans10_2, R.drawable.ans10_3, R.drawable.ans10_4))
 
     )
 
@@ -148,7 +154,6 @@ class GameFragment : Fragment() {
     }
 
     private fun checkScore(indexAns: Int) {
-        Log.i("GameFragment", "${answers[indexAns]}  :  ${currentQuestion.answers[0]}")
         if(answers[indexAns] == currentQuestion.answers[0]){
             score++
         }

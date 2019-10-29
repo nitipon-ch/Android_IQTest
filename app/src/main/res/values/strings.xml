@@ -19,4 +19,8 @@
     <string name="main_menu_result_button">MAIN MENU</string>
     <string name="high_score_button">HIGH SCORE</string>
     <string name="name_hint">Your name</string>
+    <string name="about_button">ABOUT</string>
+    <string name="start_button_text">LET\'S START</string>
+    <string name="about_title_text">ABOUT</string>
+    <string name="about_text">ลับสมองประลองปัญญาเป็นเกมแนว Quiz \n\nซึ่งเกี่ยวกับการประเมิณ IQ มี 12 คำถามกับ \n\n4 ตัวเลือก</string>
 </resources>
