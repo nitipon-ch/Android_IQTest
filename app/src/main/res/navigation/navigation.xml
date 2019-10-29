@@ -17,9 +17,6 @@
         <action
             android:id="@+id/action_startFragment_to_scoreFragment"
             app:destination="@id/scoreFragment" />
-        <action
-            android:id="@+id/action_startFragment_to_aboutFragment"
-            app:destination="@id/aboutFragment" />
     </fragment>
     <fragment
         android:id="@+id/nameFragment"
@@ -28,7 +25,8 @@
         tools:layout="@layout/fragment_name">
         <action
             android:id="@+id/action_nameFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@+id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -37,7 +35,8 @@
         tools:layout="@layout/fragment_game">
         <action
             android:id="@+id/action_gameFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
+            app:destination="@id/resultFragment"
+            app:popUpTo="@+id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -46,7 +45,12 @@
         tools:layout="@layout/fragment_result">
         <action
             android:id="@+id/action_resultFragment_to_startFragment"
-            app:destination="@id/startFragment" />
+            app:destination="@id/startFragment"
+            app:popUpTo="@+id/startFragment" />
+        <action
+            android:id="@+id/action_resultFragment_to_gameFragment2"
+            app:destination="@+id/gameFragment"
+            app:popUpTo="@+id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/scoreFragment"

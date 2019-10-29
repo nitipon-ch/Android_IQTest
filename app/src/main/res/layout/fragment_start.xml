@@ -37,7 +37,7 @@
             android:id="@+id/letStartButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:background="@color/colorPrimary"
             android:paddingStart="100dp"
             android:paddingEnd="100dp"
@@ -54,34 +54,17 @@
             android:id="@+id/highScoreButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:background="@color/colorPrimary"
             android:paddingStart="100dp"
             android:paddingEnd="100dp"
             android:text="@string/high_score_button"
             android:textColor="@android:color/background_light"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/aboutButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/letStartButton"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/letStartButton" />
 
-        <Button
-            android:id="@+id/aboutButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:paddingStart="115dp"
-            android:paddingEnd="115dp"
-            android:text="@string/about_button"
-            android:textColor="@android:color/background_light"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/highScoreButton"
-            app:layout_constraintVertical_bias="0.34" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
