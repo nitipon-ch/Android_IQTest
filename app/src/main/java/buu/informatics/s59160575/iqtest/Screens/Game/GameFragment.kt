@@ -27,6 +27,7 @@ class GameFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val args = GameFragmentArgs.fromBundle(arguments!!)
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,
@@ -39,18 +40,18 @@ class GameFragment : Fragment() {
 
         binding.answerButton1.setOnClickListener { view ->
             viewModel.apply {
-                if (questionIndex >= questions.size-1){
+                if (questionIndex.value!!.toInt() >= questions.size-1){
                     checkScore(0)
                     view.findNavController().navigate(
                         GameFragmentDirections.actionGameFragmentToResultFragment(
-                            score,
+                            score.value!!,
                             args.userName
                         )
                     )
                 }else{
                     checkScore(0)
-                    questionIndex++
-                    currentQuestion = questions[questionIndex]
+                    questionIndex.value = (questionIndex.value)?.plus(1)
+                    currentQuestion = questions[questionIndex.value!!]
                     setQuestion()
 
                     binding.invalidateAll()
@@ -63,18 +64,18 @@ class GameFragment : Fragment() {
         }
         binding.answerButton2.setOnClickListener { view ->
             viewModel.apply {
-                if (questionIndex >= questions.size-1){
+                if (questionIndex.value!! >= questions.size-1){
                     checkScore(1)
                     view.findNavController().navigate(
                         GameFragmentDirections.actionGameFragmentToResultFragment(
-                            score,
+                            score.value!!,
                             args.userName
                         )
                     )
                 }else{
                     checkScore(1)
-                    questionIndex++
-                    currentQuestion = questions[questionIndex]
+                    questionIndex.value = (questionIndex.value)?.plus(1)
+                    currentQuestion = questions[questionIndex.value!!]
                     setQuestion()
 
                     binding.invalidateAll()
@@ -85,18 +86,18 @@ class GameFragment : Fragment() {
         }
         binding.answerButton3.setOnClickListener { view ->
             viewModel.apply {
-                if (questionIndex >= questions.size-1){
+                if (questionIndex.value!! >= questions.size-1){
                     checkScore(2)
                     view.findNavController().navigate(
                         GameFragmentDirections.actionGameFragmentToResultFragment(
-                            score,
+                            score.value!!,
                             args.userName
                         )
                     )
                 }else{
                     checkScore(2)
-                    questionIndex++
-                    currentQuestion = questions[questionIndex]
+                    questionIndex.value = (questionIndex.value)?.plus(1)
+                    currentQuestion = questions[questionIndex.value!!]
                     setQuestion()
 
                     binding.invalidateAll()
@@ -105,15 +106,18 @@ class GameFragment : Fragment() {
         }
         binding.answerButton4.setOnClickListener { view ->
             viewModel.apply {
-                if (questionIndex >= questions.size-1){
+                if (questionIndex.value!! >= questions.size-1){
                     checkScore(3)
                     view.findNavController().navigate(
-                        GameFragmentDirections.actionGameFragmentToResultFragment(score, args.userName )
+                        GameFragmentDirections.actionGameFragmentToResultFragment(
+                            score.value!!,
+                            args.userName
+                        )
                     )
                 }else{
                     checkScore(3)
-                    questionIndex++
-                    currentQuestion = questions[questionIndex]
+                    questionIndex.value = (questionIndex.value)?.plus(1)
+                    currentQuestion = questions[questionIndex.value!!]
                     setQuestion()
                     binding.invalidateAll()
 
@@ -126,7 +130,7 @@ class GameFragment : Fragment() {
 
     fun randomizeQuestions() {
         viewModel.questions.shuffle()
-        viewModel.questionIndex = 0
+        viewModel.questionIndex.value = 0
         setQuestion()
     }
 
@@ -135,9 +139,9 @@ class GameFragment : Fragment() {
         val textTitle : TextView = binding.questionText
         
         viewModel.apply {
-            textTitle.setText("Question ${questionIndex+1} / 12")
+            textTitle.setText("Question ${questionIndex.value!!.toInt() +1} / 12")
 
-            currentQuestion = questions[questionIndex]
+            currentQuestion = questions[questionIndex.value!!]
             answers = currentQuestion.answers.toMutableList()
             answers.shuffle()
             imageQuestion.setImageResource(currentQuestion.image)
