@@ -1,4 +1,4 @@
-package buu.informatics.s59160575.iqtest
+package buu.informatics.s59160575.iqtest.Screens.About
 
 
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import buu.informatics.s59160575.iqtest.R
 import buu.informatics.s59160575.iqtest.databinding.FragmentAboutBinding
 
 /**
@@ -19,7 +20,8 @@ class AboutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_about, container, false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_about, container, false)
         return binding.root
     }
 

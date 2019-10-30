@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/forest"
-        tools:context=".NameFragment">
+        tools:context=".Screens.Name.NameFragment">
 
         <TextView
             android:id="@+id/enterNameText"

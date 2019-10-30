@@ -1,4 +1,4 @@
-package buu.informatics.s59160575.iqtest
+package buu.informatics.s59160575.iqtest.Screens.Name
 
 
 import android.os.Bundle
@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import buu.informatics.s59160575.iqtest.Screens.Name.NameFragmentDirections
+import buu.informatics.s59160575.iqtest.R
 import buu.informatics.s59160575.iqtest.databinding.FragmentNameBinding
 
 /**
@@ -21,13 +23,18 @@ class NameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_name, container, false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_name, container, false)
         binding.startButton.setOnClickListener { view ->
             var username = binding.nameEditText.text.toString()
             if(username.isEmpty()){
                 Toast.makeText(context, "Please Input your name", Toast.LENGTH_LONG).show()
             }else{
-                view.findNavController().navigate(NameFragmentDirections.actionNameFragmentToGameFragment( username ))
+                view.findNavController().navigate(
+                    NameFragmentDirections.actionNameFragmentToGameFragment(
+                        username
+                    )
+                )
             }
 
         }

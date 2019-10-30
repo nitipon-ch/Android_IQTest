@@ -8,13 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/forest"
-        tools:context=".ResultFragment">
+        tools:context=".Screens.Result.ResultFragment">
 
         <ImageView
             android:id="@+id/brainPics"
             android:layout_width="205dp"
             android:layout_height="218dp"
             android:layout_marginTop="30dp"
+            android:contentDescription="@string/brain_pics_result"
             android:src="@drawable/lightbulb"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,32 +24,35 @@
         <TextView
             android:id="@+id/nameResultText"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="108dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:gravity="end"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
             android:text="@string/name_result_text"
             android:textColor="#FFEB3B"
             android:textColorHighlight="#F30707"
             android:textColorLink="#00EE0606"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/brainPics" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heyText" />
 
         <TextView
             android:id="@+id/heyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="112dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="20dp"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
             android:text="@string/hey_text"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.159"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/brainPics" />
 
@@ -56,7 +60,7 @@
             android:id="@+id/nameResultText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="18dp"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
             android:text="@string/name_result_text2"
@@ -71,7 +75,7 @@
             android:id="@+id/scoreResultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:text="@string/score_result_text"
             android:textColor="#FFEB3B"
             android:textSize="36sp"

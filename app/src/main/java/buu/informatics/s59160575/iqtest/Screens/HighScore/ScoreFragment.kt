@@ -1,4 +1,4 @@
-package buu.informatics.s59160575.iqtest
+package buu.informatics.s59160575.iqtest.Screens.HighScore
 
 
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import buu.informatics.s59160575.iqtest.R
 import buu.informatics.s59160575.iqtest.databinding.FragmentScoreBinding
 import buu.informatics.s59160575.iqtest.databinding.FragmentStartBinding
 
@@ -22,7 +23,8 @@ class ScoreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_score,container,false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_score,container,false)
         binding.mainMennuButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_scoreFragment_to_startFragment)
         }

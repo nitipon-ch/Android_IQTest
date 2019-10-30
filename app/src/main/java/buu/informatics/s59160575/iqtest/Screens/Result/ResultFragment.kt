@@ -1,4 +1,4 @@
-package buu.informatics.s59160575.iqtest
+package buu.informatics.s59160575.iqtest.Screens.Result
 
 
 import android.content.Intent
@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import buu.informatics.s59160575.iqtest.R
+import buu.informatics.s59160575.iqtest.Screens.Result.ResultFragmentArgs
 import buu.informatics.s59160575.iqtest.databinding.FragmentResultBinding
 
 /**
@@ -21,13 +23,17 @@ class ResultFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         //get argument
-        val args = ResultFragmentArgs.fromBundle(arguments!!)
+        val args =
+            ResultFragmentArgs.fromBundle(
+                arguments!!
+            )
 
         IQ = computeIQ(args.scoreResult)
 
         Toast.makeText(context, "Score : ${args.scoreResult} Name : ${args.userName}", Toast.LENGTH_LONG).show()
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_result, container, false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_result, container, false)
 
         binding.nameResultText.text = "${args.userName}"
         binding.scoreResultText.text = " ${ IQ } "
@@ -51,7 +57,10 @@ class ResultFragment : Fragment() {
 
     // Creating our Share Intent
     private fun getShareIntent() : Intent {
-        val args = ResultFragmentArgs.fromBundle(arguments!!)
+        val args =
+            ResultFragmentArgs.fromBundle(
+                arguments!!
+            )
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.setType("text/plain")
             .putExtra(Intent.EXTRA_TEXT, getString(R.string.share_success_text, args.userName, IQ))
@@ -66,17 +75,17 @@ class ResultFragment : Fragment() {
     // Showing the Share Menu Item Dynamically
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.winner_menu, menu)
+        inflater.inflate(R.menu.winner_menu, menu)
         // check if the activity resolves
         if (null == getShareIntent().resolveActivity(activity!!.packageManager)) {
             // hide the menu item if it doesn't resolve
-            menu?.findItem(R.id.share)?.setVisible(false)
+            menu.findItem(R.id.share)?.setVisible(false)
         }
     }
 
     // Sharing from the Menu
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item!!.itemId) {
+        when (item.itemId) {
             R.id.share -> shareSuccess()
         }
         return super.onOptionsItemSelected(item)

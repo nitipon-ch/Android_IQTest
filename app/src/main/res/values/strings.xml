@@ -27,4 +27,5 @@
     <string name="hey_text">Hey!!</string>
     <string name="share_item">share</string>
     <string name="share_success_text">My name is %1$s. My IQ Score %2$d!! From ลับสมองประลองปัญญา App</string>
+    <string name="brain_pics_result" />
 </resources>

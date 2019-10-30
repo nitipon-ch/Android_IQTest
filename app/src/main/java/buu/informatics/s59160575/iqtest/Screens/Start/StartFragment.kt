@@ -1,4 +1,4 @@
-package buu.informatics.s59160575.iqtest
+package buu.informatics.s59160575.iqtest.Screens.Start
 
 
 import android.os.Bundle
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import buu.informatics.s59160575.iqtest.R
 import buu.informatics.s59160575.iqtest.databinding.FragmentStartBinding
 
 /**
@@ -19,7 +20,8 @@ class StartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_start,container,false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_start,container,false)
 
         binding.letStartButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_startFragment_to_nameFragment)
