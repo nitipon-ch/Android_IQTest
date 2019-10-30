@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import buu.informatics.s59160575.iqtest.Screens.Game.GameFragmentDirections
@@ -35,8 +36,12 @@ class GameFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
 
-        randomizeQuestions()
+        viewModel.questionIndex.observe(this, Observer { newQuestionIndex ->
+            binding.questionText.text = "Question ${newQuestionIndex.toInt() +1} / 12"
 
+        })
+
+        randomizeQuestions()
 
         binding.answerButton1.setOnClickListener { view ->
             viewModel.apply {
@@ -55,13 +60,11 @@ class GameFragment : Fragment() {
                     setQuestion()
 
                     binding.invalidateAll()
-
                 }
             }
-           
-
 
         }
+
         binding.answerButton2.setOnClickListener { view ->
             viewModel.apply {
                 if (questionIndex.value!! >= questions.size-1){
@@ -84,6 +87,7 @@ class GameFragment : Fragment() {
             }
             
         }
+
         binding.answerButton3.setOnClickListener { view ->
             viewModel.apply {
                 if (questionIndex.value!! >= questions.size-1){
@@ -104,6 +108,7 @@ class GameFragment : Fragment() {
                 }
             }
         }
+
         binding.answerButton4.setOnClickListener { view ->
             viewModel.apply {
                 if (questionIndex.value!! >= questions.size-1){
@@ -139,7 +144,7 @@ class GameFragment : Fragment() {
         val textTitle : TextView = binding.questionText
         
         viewModel.apply {
-            textTitle.setText("Question ${questionIndex.value!!.toInt() +1} / 12")
+//            textTitle.setText("Question ${questionIndex.value!!.toInt() +1} / 12")
 
             currentQuestion = questions[questionIndex.value!!]
             answers = currentQuestion.answers.toMutableList()
