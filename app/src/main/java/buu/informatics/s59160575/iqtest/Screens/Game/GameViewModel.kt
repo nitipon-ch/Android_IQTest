@@ -4,6 +4,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import buu.informatics.s59160575.iqtest.R
@@ -110,17 +111,23 @@ class GameViewModel : ViewModel() {
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<Int>
 
-    var questionIndex = MutableLiveData<Int>()
-    var score = MutableLiveData<Int>()
+    val _questionIndex = MutableLiveData<Int>()
+
+    val questionIndex: LiveData<Int>
+        get() = _questionIndex
+    private val _score = MutableLiveData<Int>()
+
+    val score: LiveData<Int>
+        get() = _score
 
     init {
         Log.i("GameViewModel","GameViewModel Create")
-        score.value = 0
+        _score.value = 0
     }
 
     fun checkScore(indexAns: Int) {
         if(answers[indexAns] == currentQuestion.answers[0]){
-            score.value = (score.value)?.plus(1)
+            _score.value = (score.value)?.plus(1)
         }
         Log.i("GameFragment", "Score : ${score}")
     }

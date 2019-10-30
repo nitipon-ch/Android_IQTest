@@ -55,7 +55,7 @@ class GameFragment : Fragment() {
                     )
                 }else{
                     checkScore(0)
-                    questionIndex.value = (questionIndex.value)?.plus(1)
+                    _questionIndex.value = (questionIndex.value)?.plus(1)
                     currentQuestion = questions[questionIndex.value!!]
                     setQuestion()
 
@@ -77,7 +77,7 @@ class GameFragment : Fragment() {
                     )
                 }else{
                     checkScore(1)
-                    questionIndex.value = (questionIndex.value)?.plus(1)
+                    _questionIndex.value = (questionIndex.value)?.plus(1)
                     currentQuestion = questions[questionIndex.value!!]
                     setQuestion()
 
@@ -100,7 +100,7 @@ class GameFragment : Fragment() {
                     )
                 }else{
                     checkScore(2)
-                    questionIndex.value = (questionIndex.value)?.plus(1)
+                    _questionIndex.value = (questionIndex.value)?.plus(1)
                     currentQuestion = questions[questionIndex.value!!]
                     setQuestion()
 
@@ -121,7 +121,7 @@ class GameFragment : Fragment() {
                     )
                 }else{
                     checkScore(3)
-                    questionIndex.value = (questionIndex.value)?.plus(1)
+                    _questionIndex.value = (questionIndex.value)?.plus(1)
                     currentQuestion = questions[questionIndex.value!!]
                     setQuestion()
                     binding.invalidateAll()
@@ -135,7 +135,7 @@ class GameFragment : Fragment() {
 
     fun randomizeQuestions() {
         viewModel.questions.shuffle()
-        viewModel.questionIndex.value = 0
+        viewModel._questionIndex.value = 0
         setQuestion()
     }
 
