@@ -112,9 +112,7 @@ class GameViewModel : ViewModel() {
     var score : Int = 0
     init {
         Log.i("GameViewModel","GameViewModel Create")
-
     }
-
 
     fun checkScore(indexAns: Int) {
         if(answers[indexAns] == currentQuestion.answers[0]){
