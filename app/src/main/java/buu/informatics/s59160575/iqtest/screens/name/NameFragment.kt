@@ -25,20 +25,24 @@ class NameFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_name, container, false)
         binding.startButton.setOnClickListener { view ->
-            var username = binding.nameEditText.text.toString()
-            if(username.isEmpty()){
-                Toast.makeText(context, "Please Input your name", Toast.LENGTH_LONG).show()
-            }else{
-                view.findNavController().navigate(
-                    NameFragmentDirections.actionNameFragmentToGameFragment(
-                        username
-                    )
-                )
-            }
+            checkName()
 
         }
 
         return binding.root
+    }
+
+    private fun checkName() {
+        var username = binding.nameEditText.text.toString()
+        if(username.isEmpty()){
+            Toast.makeText(context, "Please Input your name", Toast.LENGTH_LONG).show()
+        }else{
+            view!!.findNavController().navigate(
+                NameFragmentDirections.actionNameFragmentToGameFragment(
+                    username
+                )
+            )
+        }
     }
 
 

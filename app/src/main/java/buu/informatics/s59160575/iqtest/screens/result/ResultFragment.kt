@@ -35,7 +35,7 @@ class ResultFragment : Fragment() {
 
         IQ = viewModel.computeIQ(args.scoreResult)
 
-        Toast.makeText(context, "Score : ${args.scoreResult} Name : ${args.userName}", Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "your score correct is ${args.scoreResult} ", Toast.LENGTH_LONG).show()
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_result, container, false)

@@ -1,12 +1,31 @@
 package buu.informatics.s59160575.iqtest.screens.game
 
+import android.os.CountDownTimer
+import android.text.format.DateUtils
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import buu.informatics.s59160575.iqtest.R
 
 class GameViewModel : ViewModel() {
+    val timer: CountDownTimer
+
+    companion object {
+
+        // Time when the game is over
+        private const val DONE = 0L
+
+        // Countdown time interval
+        private const val ONE_SECOND = 1000L
+
+        // Total time for the game
+        private const val COUNTDOWN_TIME = 60000L
+
+    }
+
+
     data class Question(
         val image: Int,
         val answers: List<Int>)
@@ -132,12 +151,35 @@ class GameViewModel : ViewModel() {
     val eventGameFinish: LiveData<Boolean>
         get() = _eventGameFinish
 
+    // Countdown time
+    private val _currentTime = MutableLiveData<Long>()
+    val currentTime: LiveData<Long>
+        get() = _currentTime
+
+    // The String version of the current time
+    val currentTimeString = Transformations.map(currentTime) { time ->
+        DateUtils.formatElapsedTime(time)
+    }
+
     init {
         Log.i("GameViewModel","GameViewModel Create")
         randomizeQuestions()
         setQuestion()
         _score.value = 0
 
+        timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
+
+            override fun onTick(millisUntilFinished: Long) {
+                _currentTime.value = millisUntilFinished/ONE_SECOND
+            }
+
+            override fun onFinish() {
+                _currentTime.value = DONE
+                onGameFinish()
+            }
+        }
+
+        timer.start()
     }
 
     fun checkGameFinish() : Boolean{
@@ -177,10 +219,11 @@ class GameViewModel : ViewModel() {
         _currentAnswer.value = ans
     }
 
-
     override fun onCleared() {
         super.onCleared()
         Log.i("GameViewModel", "GameViewModel destroyed!")
+        // Cancel the timer
+        timer.cancel()
     }
 
     fun onGameFinishComplete() {

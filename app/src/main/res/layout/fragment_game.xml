@@ -18,11 +18,11 @@
             android:id="@+id/questionView"
             android:layout_width="302dp"
             android:layout_height="224dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:foregroundGravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/question_text" />
+            app:layout_constraintTop_toBottomOf="@id/timer_text" />
 
         <TextView
             android:id="@+id/question_text"
@@ -87,6 +87,18 @@
             app:layout_constraintStart_toEndOf="@+id/answerButton3"
             app:layout_constraintTop_toBottomOf="@+id/answerButton2"
             android:onClick="@{ () -> gameViewModel.checkCorrect(3)}"/>
+
+        <TextView
+            android:id="@+id/timer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{gameViewModel.currentTimeString}"
+            android:textColor="#FFC107"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/question_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
