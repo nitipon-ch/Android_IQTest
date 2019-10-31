@@ -36,108 +36,57 @@ class GameFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
 
+        //binding with gameViewModel add data in fragment_game
+//        binding.gameViewModel = viewModel
+
         viewModel.questionIndex.observe(this, Observer { newQuestionIndex ->
             binding.questionText.text = "Question ${newQuestionIndex.toInt() +1} / 12"
 
         })
 
-        randomizeQuestions()
+        viewModel.randomizeQuestions()
+        setQuestion()
 
         binding.answerButton1.setOnClickListener { view ->
-            viewModel.apply {
-                if (questionIndex.value!!.toInt() >= questions.size-1){
-                    checkScore(0)
-                    view.findNavController().navigate(
-                        GameFragmentDirections.actionGameFragmentToResultFragment(
-                            score.value!!,
-                            args.userName
-                        )
-                    )
-                }else{
-                    checkScore(0)
-                    _questionIndex.value = (questionIndex.value)?.plus(1)
-                    currentQuestion = questions[questionIndex.value!!]
-                    setQuestion()
-
-                    binding.invalidateAll()
-                }
-            }
-
+            checkCorrect(0, args.userName)
         }
 
         binding.answerButton2.setOnClickListener { view ->
-            viewModel.apply {
-                if (questionIndex.value!! >= questions.size-1){
-                    checkScore(1)
-                    view.findNavController().navigate(
-                        GameFragmentDirections.actionGameFragmentToResultFragment(
-                            score.value!!,
-                            args.userName
-                        )
-                    )
-                }else{
-                    checkScore(1)
-                    _questionIndex.value = (questionIndex.value)?.plus(1)
-                    currentQuestion = questions[questionIndex.value!!]
-                    setQuestion()
-
-                    binding.invalidateAll()
-
-                }
-            }
-            
+            checkCorrect(1, args.userName)
         }
 
         binding.answerButton3.setOnClickListener { view ->
-            viewModel.apply {
-                if (questionIndex.value!! >= questions.size-1){
-                    checkScore(2)
-                    view.findNavController().navigate(
-                        GameFragmentDirections.actionGameFragmentToResultFragment(
-                            score.value!!,
-                            args.userName
-                        )
-                    )
-                }else{
-                    checkScore(2)
-                    _questionIndex.value = (questionIndex.value)?.plus(1)
-                    currentQuestion = questions[questionIndex.value!!]
-                    setQuestion()
-
-                    binding.invalidateAll()
-                }
-            }
+            checkCorrect(2, args.userName)
         }
 
         binding.answerButton4.setOnClickListener { view ->
-            viewModel.apply {
-                if (questionIndex.value!! >= questions.size-1){
-                    checkScore(3)
-                    view.findNavController().navigate(
-                        GameFragmentDirections.actionGameFragmentToResultFragment(
-                            score.value!!,
-                            args.userName
-                        )
-                    )
-                }else{
-                    checkScore(3)
-                    _questionIndex.value = (questionIndex.value)?.plus(1)
-                    currentQuestion = questions[questionIndex.value!!]
-                    setQuestion()
-                    binding.invalidateAll()
-
-                }
-            }
+            checkCorrect(3, args.userName)
         }
 
         return binding.root
     }
 
-    fun randomizeQuestions() {
-        viewModel.questions.shuffle()
-        viewModel._questionIndex.value = 0
-        setQuestion()
+    private fun checkCorrect(index: Int, username: String) {
+        viewModel.apply {
+            if (questionIndex.value!!.toInt() >= questions.size-1){
+                checkScore(0)
+                view!!.findNavController().navigate(
+                    GameFragmentDirections.actionGameFragmentToResultFragment(
+                        score.value!!,
+                        username
+                    )
+                )
+            }else{
+                checkScore(0)
+                _questionIndex.value = (questionIndex.value)?.plus(1)
+                currentQuestion = questions[questionIndex.value!!]
+                setQuestion()
+
+                binding.invalidateAll()
+            }
+        }
     }
+
 
     fun setQuestion(){
         val imageQuestion : ImageView = binding.questionView

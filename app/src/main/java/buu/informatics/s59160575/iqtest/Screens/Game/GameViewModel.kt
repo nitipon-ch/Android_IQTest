@@ -125,6 +125,8 @@ class GameViewModel : ViewModel() {
         _score.value = 0
     }
 
+
+
     fun checkScore(indexAns: Int) {
         if(answers[indexAns] == currentQuestion.answers[0]){
             _score.value = (score.value)?.plus(1)
@@ -132,7 +134,10 @@ class GameViewModel : ViewModel() {
         Log.i("GameFragment", "Score : ${score}")
     }
 
-
+    fun randomizeQuestions() {
+        questions.shuffle()
+        _questionIndex.value = 0
+    }
 
     override fun onCleared() {
         super.onCleared()
