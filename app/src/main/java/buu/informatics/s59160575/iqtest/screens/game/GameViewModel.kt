@@ -1,9 +1,6 @@
-package buu.informatics.s59160575.iqtest.Screens.Game
+package buu.informatics.s59160575.iqtest.screens.game
 
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -108,39 +105,86 @@ class GameViewModel : ViewModel() {
 
     )
 
-    lateinit var currentQuestion: Question
-    lateinit var answers: MutableList<Int>
+    lateinit var userName: String
 
-    val _questionIndex = MutableLiveData<Int>()
-
+    private val _questionIndex = MutableLiveData<Int>()
     val questionIndex: LiveData<Int>
         get() = _questionIndex
-    private val _score = MutableLiveData<Int>()
 
+    private val _questionNum = MutableLiveData<Int>()
+    val questionNum: LiveData<Int>
+        get() = _questionNum
+
+    private val _score = MutableLiveData<Int>()
     val score: LiveData<Int>
         get() = _score
 
+    private val _currentQuestion = MutableLiveData<Question>()
+    val currentQuestion : LiveData<Question>
+        get() = _currentQuestion
+
+    private val _currentAnswer = MutableLiveData<MutableList<Int>>()
+    val currentAnswer : LiveData<MutableList<Int>>
+        get() = _currentAnswer
+
+    private val _eventGameFinish = MutableLiveData<Boolean>()
+    val eventGameFinish: LiveData<Boolean>
+        get() = _eventGameFinish
+
     init {
         Log.i("GameViewModel","GameViewModel Create")
+        randomizeQuestions()
+        setQuestion()
         _score.value = 0
+
     }
 
-
+    fun checkGameFinish() : Boolean{
+        return questionIndex.value!!.toInt() >= questions.size-1
+    }
 
     fun checkScore(indexAns: Int) {
-        if(answers[indexAns] == currentQuestion.answers[0]){
+        if(_currentAnswer.value!![indexAns] == _currentQuestion.value!!.answers[0]){
             _score.value = (score.value)?.plus(1)
         }
-        Log.i("GameFragment", "Score : ${score}")
+        Log.i("GameFragment", "Score : ${_score.value}")
     }
 
     fun randomizeQuestions() {
         questions.shuffle()
         _questionIndex.value = 0
+        _questionNum.value = _questionIndex.value!!+1
     }
+
+    fun checkCorrect(index: Int) {
+            checkScore(index)
+
+            if (checkGameFinish()){
+                onGameFinish()
+            }else{
+                _questionIndex.value = (questionIndex.value)?.plus(1)
+                _questionNum.value = _questionIndex.value!!+1
+                setQuestion()
+            }
+    }
+
+    fun setQuestion(){
+        _currentQuestion.value = questions[questionIndex.value!!]
+        _currentAnswer.value = _currentQuestion.value!!.answers.toMutableList()
+        _currentAnswer.value!!.shuffle()
+    }
+
 
     override fun onCleared() {
         super.onCleared()
         Log.i("GameViewModel", "GameViewModel destroyed!")
+    }
+
+    fun onGameFinishComplete() {
+        _eventGameFinish.value = false
+    }
+
+    fun onGameFinish() {
+        _eventGameFinish.value = true
     }
 }

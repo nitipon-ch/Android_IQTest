@@ -2,16 +2,16 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="gameViewModel"-->
-<!--            type="buu.informatics.s59160575.iqtest.Screens.Game.GameViewModel" />-->
-<!--    </data>-->
+    <data>
+        <variable
+            name="gameViewModel"
+            type="buu.informatics.s59160575.iqtest.screens.game.GameViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/forest"
-        tools:context=".Screens.Game.GameFragment">
+        tools:context=".screens.game.GameFragment">
 
 
         <ImageView
@@ -20,7 +20,6 @@
             android:layout_height="224dp"
             android:layout_marginTop="30dp"
             android:foregroundGravity="center"
-            android:src="@drawable/question_one"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/question_text" />
@@ -30,25 +29,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="@string/question_text"
+            android:text="@{@string/num_question_format(gameViewModel.questionNum)}"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/answerButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/ans1_2"
-            app:layout_constraintBottom_toTopOf="@+id/answerButton4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/answerButton1"
-            app:layout_constraintTop_toBottomOf="@+id/questionView" />
 
         <Button
             android:id="@+id/answerButton1"
@@ -56,25 +43,25 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/ans1_1"
             app:layout_constraintBottom_toTopOf="@+id/answerButton3"
             app:layout_constraintEnd_toStartOf="@+id/answerButton2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/questionView" />
+            app:layout_constraintTop_toBottomOf="@+id/questionView"
+            android:onClick="@{ () -> gameViewModel.checkCorrect(0)}"/>
 
         <Button
-            android:id="@+id/answerButton4"
+            android:id="@+id/answerButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/ans1_4"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/answerButton4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/answerButton3"
-            app:layout_constraintTop_toBottomOf="@+id/answerButton2" />
+            app:layout_constraintStart_toEndOf="@+id/answerButton1"
+            app:layout_constraintTop_toBottomOf="@+id/questionView"
+            android:onClick="@{ () -> gameViewModel.checkCorrect(1)}"/>
 
         <Button
             android:id="@+id/answerButton3"
@@ -82,10 +69,24 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/ans1_3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/answerButton4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/answerButton1" />
+            app:layout_constraintTop_toBottomOf="@+id/answerButton1"
+            android:onClick="@{ () -> gameViewModel.checkCorrect(2)}"/>
+
+        <Button
+            android:id="@+id/answerButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/answerButton3"
+            app:layout_constraintTop_toBottomOf="@+id/answerButton2"
+            android:onClick="@{ () -> gameViewModel.checkCorrect(3)}"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

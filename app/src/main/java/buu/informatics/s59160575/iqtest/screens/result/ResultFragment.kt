@@ -1,4 +1,4 @@
-package buu.informatics.s59160575.iqtest.Screens.Result
+package buu.informatics.s59160575.iqtest.screens.result
 
 
 import android.content.Intent
@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import buu.informatics.s59160575.iqtest.R
-import buu.informatics.s59160575.iqtest.Screens.Result.ResultFragmentArgs
 import buu.informatics.s59160575.iqtest.databinding.FragmentResultBinding
 
 /**
@@ -71,7 +70,7 @@ class ResultFragment : Fragment() {
     // Showing the Share Menu Item Dynamically
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.winner_menu, menu)
+        inflater.inflate(R.menu.result_menu, menu)
         // check if the activity resolves
         if (null == getShareIntent().resolveActivity(activity!!.packageManager)) {
             // hide the menu item if it doesn't resolve

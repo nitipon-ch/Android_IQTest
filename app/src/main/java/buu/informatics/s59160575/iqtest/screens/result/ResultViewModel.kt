@@ -1,4 +1,4 @@
-package buu.informatics.s59160575.iqtest.Screens.Result
+package buu.informatics.s59160575.iqtest.screens.result
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

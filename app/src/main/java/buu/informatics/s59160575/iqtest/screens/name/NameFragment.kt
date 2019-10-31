@@ -1,4 +1,4 @@
-package buu.informatics.s59160575.iqtest.Screens.Name
+package buu.informatics.s59160575.iqtest.screens.name
 
 
 import android.os.Bundle
@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import buu.informatics.s59160575.iqtest.Screens.Name.NameFragmentDirections
 import buu.informatics.s59160575.iqtest.R
 import buu.informatics.s59160575.iqtest.databinding.FragmentNameBinding
 

@@ -1,4 +1,4 @@
-package buu.informatics.s59160575.iqtest.Screens.Start
+package buu.informatics.s59160575.iqtest.screens.start
 
 
 import android.os.Bundle

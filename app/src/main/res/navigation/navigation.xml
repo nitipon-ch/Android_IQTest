@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="buu.informatics.s59160575.iqtest.Screens.Start.StartFragment"
+        android:name="buu.informatics.s59160575.iqtest.screens.start.StartFragment"
         android:label="StartFragment"
         tools:layout="@layout/fragment_start"
         >
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/nameFragment"
-        android:name="buu.informatics.s59160575.iqtest.Screens.Name.NameFragment"
+        android:name="buu.informatics.s59160575.iqtest.screens.name.NameFragment"
         android:label="NameFragment"
         tools:layout="@layout/fragment_name">
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
-        android:name="buu.informatics.s59160575.iqtest.Screens.Game.GameFragment"
+        android:name="buu.informatics.s59160575.iqtest.screens.game.GameFragment"
         android:label="GameFragment"
         tools:layout="@layout/fragment_game">
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="buu.informatics.s59160575.iqtest.Screens.Result.ResultFragment"
+        android:name="buu.informatics.s59160575.iqtest.screens.result.ResultFragment"
         android:label="ResultFragment"
         tools:layout="@layout/fragment_result">
         <action
@@ -63,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/scoreFragment"
-        android:name="buu.informatics.s59160575.iqtest.Screens.HighScore.ScoreFragment"
+        android:name="buu.informatics.s59160575.iqtest.screens.highScore.ScoreFragment"
         android:label="ScoreFragment"
         tools:layout="@layout/fragment_score">
         <action
@@ -72,7 +72,7 @@
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="buu.informatics.s59160575.iqtest.Screens.About.AboutFragment"
+        android:name="buu.informatics.s59160575.iqtest.screens.about.AboutFragment"
         android:label="AboutFragment"
         tools:layout="@layout/fragment_about"/>
 </navigation>
