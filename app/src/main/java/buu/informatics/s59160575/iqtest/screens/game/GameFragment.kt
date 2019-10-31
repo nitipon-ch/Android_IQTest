@@ -51,11 +51,8 @@ class GameFragment : Fragment() {
             binding.answerButton4.setBackgroundResource(newAnswer[3])
         })
 
-        
         viewModel.eventGameFinish.observe(this, Observer<Boolean> { hasFinished ->
-
             if (hasFinished) gameFinished(args.userName)
-
         })
 
         viewModel.userName = args.userName

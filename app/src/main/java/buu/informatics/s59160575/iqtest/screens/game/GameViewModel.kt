@@ -106,6 +106,7 @@ class GameViewModel : ViewModel() {
     )
 
     lateinit var userName: String
+    lateinit var ans: MutableList<Int>
 
     private val _questionIndex = MutableLiveData<Int>()
     val questionIndex: LiveData<Int>
@@ -144,6 +145,7 @@ class GameViewModel : ViewModel() {
     }
 
     fun checkScore(indexAns: Int) {
+        Log.i("GameViewModel","current :  ${_currentAnswer.value!![indexAns]}  answer: ${_currentQuestion.value!!.answers[0]}")
         if(_currentAnswer.value!![indexAns] == _currentQuestion.value!!.answers[0]){
             _score.value = (score.value)?.plus(1)
         }
@@ -170,8 +172,9 @@ class GameViewModel : ViewModel() {
 
     fun setQuestion(){
         _currentQuestion.value = questions[questionIndex.value!!]
-        _currentAnswer.value = _currentQuestion.value!!.answers.toMutableList()
-        _currentAnswer.value!!.shuffle()
+        ans =  _currentQuestion.value!!.answers.toMutableList()
+        ans.shuffle()
+        _currentAnswer.value = ans
     }
 
 
