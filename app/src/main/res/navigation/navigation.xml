@@ -63,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/scoreFragment"
-        android:name="buu.informatics.s59160575.iqtest.screens.highScore.ScoreFragment"
+        android:name="buu.informatics.s59160575.iqtest.screens.highScore.HighScoreFragment"
         android:label="ScoreFragment"
         tools:layout="@layout/fragment_score">
         <action

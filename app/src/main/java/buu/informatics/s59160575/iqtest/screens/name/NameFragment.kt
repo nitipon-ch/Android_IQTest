@@ -28,7 +28,6 @@ class NameFragment : Fragment() {
             checkName()
 
         }
-
         return binding.root
     }
 

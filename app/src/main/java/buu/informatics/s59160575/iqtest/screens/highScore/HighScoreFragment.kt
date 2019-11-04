@@ -14,7 +14,7 @@ import buu.informatics.s59160575.iqtest.databinding.FragmentScoreBinding
 /**
  * A simple [Fragment] subclass.
  */
-class ScoreFragment : Fragment() {
+class HighScoreFragment : Fragment() {
     private lateinit var binding: FragmentScoreBinding
 
     override fun onCreateView(
