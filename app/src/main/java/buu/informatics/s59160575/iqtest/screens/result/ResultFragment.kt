@@ -53,7 +53,6 @@ class ResultFragment : Fragment() {
         setHasOptionsMenu(true)
         return binding.root
     }
-
     private fun setScoreText() {
         val args =
             ResultFragmentArgs.fromBundle(
