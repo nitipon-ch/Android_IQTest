@@ -7,16 +7,18 @@ import android.text.Spanned
 import androidx.core.text.HtmlCompat
 import buu.informatics.s59160575.iqtest.database.GameScore
 
-fun formatUser(scores: List<GameScore>, resources: Resources): Spanned {
+fun formatScore(scores: List<GameScore>): Spanned {
     val sb = StringBuilder()
     var num = 1
     sb.apply {
         scores.forEach {
             if(num == 1){
-                append("${num} \t${it.username} \t\t\t\t\t\t\t${it.score}<br>")
+                append("${"  "} \t${"Name"} \t\t\t\t\t\t\t\t\t\t\t\t${"IQScore"}<br>")
+                append("<br>")
+                append("${num} \t${it.username} \t\t\t\t\t\t\t\t\t\t${it.score}<br>")
                 append("<br>")
             }else{
-                append("${num} \t${it.username} \t\t\t\t\t\t\t${it.score}<br>")
+                append("${num} \t${it.username} \t\t\t\t\t\t\t\t\t\t${it.score}<br>")
                 append("<br>")
             }
 

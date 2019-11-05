@@ -20,10 +20,10 @@ interface GameScoreDatabaseDao {
     @Query("DELETE FROM game_score_table")
     fun clear()
 
-    @Query("SELECT * FROM game_score_table ORDER BY gameId DESC LIMIT 1")
+    @Query("SELECT * FROM game_score_table ORDER BY user_score DESC LIMIT 1")
     fun getGameScore(): GameScore?
 
-    @Query("SELECT * FROM game_score_table ORDER BY gameId DESC")
+    @Query("SELECT * FROM game_score_table ORDER BY user_score DESC")
     fun getAllGameScore(): LiveData<List<GameScore>>
 
 

@@ -18,57 +18,45 @@
 
 
         <TextView
-            android:id="@+id/scoreBoardText"
+            android:id="@+id/scoreBoardText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/score_text"
+            android:layout_marginTop="40dp"
+            android:text="@string/high_score_text"
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/nameText"
+            android:id="@+id/scoreBoardText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@{ highScoreViewModel.scoresString }"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/scoreText"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scoreBoardText" />
-
-        <TextView
-            android:id="@+id/scoreText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/final_score_text"
+            android:layout_marginTop="30dp"
+            android:text="@{ highScoreViewModel.scoresString}"
+            android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/nameText"
-            app:layout_constraintTop_toBottomOf="@+id/scoreBoardText" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scoreBoardText2" />
 
         <Button
             android:id="@+id/clearScoreButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="30dp"
             android:background="@color/colorPrimary"
+            android:onClick="@{() -> highScoreViewModel.clearDatabase()}"
             android:paddingStart="80dp"
             android:paddingEnd="80dp"
             android:text="@string/clear_score_button"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameText"
-            android:onClick="@{() -> highScoreViewModel.clearDatabase()}"/>
+            app:layout_constraintTop_toBottomOf="@+id/scoreBoardText" />
 
         <Button
             android:id="@+id/mainMennuButton"

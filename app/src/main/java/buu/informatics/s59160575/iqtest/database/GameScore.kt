@@ -10,7 +10,7 @@ data class GameScore (
     var gameId: Long = 0L,
 
     @ColumnInfo(name = "user_name")
-    var username: String = "Hello",
+    var username: String = "",
 
     @ColumnInfo(name = "user_score")
     var score: Int = 0

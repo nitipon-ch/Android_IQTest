@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import buu.informatics.s59160575.iqtest.database.GameScore
 import buu.informatics.s59160575.iqtest.database.GameScoreDatabaseDao
-import buu.informatics.s59160575.iqtest.formatUser
+import buu.informatics.s59160575.iqtest.formatScore
 import kotlinx.coroutines.*
 
 class HighScoreViewModel (val database: GameScoreDatabaseDao, application: Application) : AndroidViewModel(application){
@@ -30,9 +30,8 @@ class HighScoreViewModel (val database: GameScoreDatabaseDao, application: Appli
     }
 
     val scoresString = Transformations.map(score) { score ->
-        formatUser(score, application.resources)
+        formatScore(score)
     }
-
 
 
     private fun initializeGameScore() {

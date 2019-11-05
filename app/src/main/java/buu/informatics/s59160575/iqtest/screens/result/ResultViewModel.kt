@@ -57,7 +57,7 @@ class ResultViewModel( val database: GameScoreDatabaseDao, application: Applicat
         uiScope.launch {
             val newScore = GameScore()
             newScore.username = username
-            newScore.score = score
+            newScore.score = computeIQ(score)
             insert(newScore)
             gameScore.value = getGameScoreFromDatabase()
         }
