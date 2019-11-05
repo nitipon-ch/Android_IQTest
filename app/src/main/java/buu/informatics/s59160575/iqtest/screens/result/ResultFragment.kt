@@ -7,7 +7,6 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import buu.informatics.s59160575.iqtest.R
@@ -19,9 +18,9 @@ import buu.informatics.s59160575.iqtest.databinding.FragmentResultBinding
  */
 class ResultFragment : Fragment() {
     private lateinit var binding: FragmentResultBinding
-    private lateinit var viewModel: ResultViewModel
-
+    private lateinit var resultViewModel: ResultViewModel
     private  var IQ = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,21 +30,28 @@ class ResultFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_result, container, false)
 
+        val args =
+            ResultFragmentArgs.fromBundle(
+                arguments!!
+            )
+
         val application = requireNotNull(this.activity).application
 
         val dataSource = GameScoreDatabase.getInstance(application).gameScoreDatabaseDao
 
         val viewModelFactory = ResultViewModelFactory(dataSource, application)
 
-        val resultViewModel =
+        resultViewModel =
             ViewModelProviders.of(
                 this, viewModelFactory).get(ResultViewModel::class.java)
 
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
         binding.resultViewModel = resultViewModel
 
+        resultViewModel.insertScore(args.userName, args.scoreResult)
         setScoreText()
+
         binding.mainMenuResultButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_resultFragment_to_startFragment)
         }
@@ -53,27 +59,19 @@ class ResultFragment : Fragment() {
         setHasOptionsMenu(true)
         return binding.root
     }
+
+
     private fun setScoreText() {
         val args =
             ResultFragmentArgs.fromBundle(
                 arguments!!
             )
         Toast.makeText(context, "your score correct is ${args.scoreResult} ", Toast.LENGTH_LONG).show()
-        IQ = computeIQ(args.scoreResult)
+        IQ = resultViewModel.computeIQ(args.scoreResult)
         binding.nameResultText.text = "${args.userName}"
         binding.scoreResultText.text = " ${ IQ } "
     }
 
-    fun computeIQ(iq: Int) : Int {
-        return when (iq) {
-            in 0..2 -> 90
-            in 3..4 -> 100
-            in 5..6 -> 110
-            in 7..8 -> 120
-            in 9..10 -> 140
-            else -> 0
-        }
-    }
 
 
     // Creating our Share Intent

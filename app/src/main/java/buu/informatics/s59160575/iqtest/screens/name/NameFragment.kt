@@ -24,9 +24,8 @@ class NameFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_name, container, false)
-        binding.startButton.setOnClickListener { view ->
+        binding.startButton.setOnClickListener {
             checkName()
-
         }
         return binding.root
     }

@@ -38,11 +38,11 @@ class StartFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.about_menu, menu)
+        inflater!!.inflate(R.menu.about_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!,
+        return NavigationUI.onNavDestinationSelected(item,
             view!!.findNavController())
                 || super.onOptionsItemSelected(item)
     }

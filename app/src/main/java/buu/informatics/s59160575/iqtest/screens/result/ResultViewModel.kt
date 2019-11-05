@@ -18,11 +18,21 @@ class ResultViewModel( val database: GameScoreDatabaseDao, application: Applicat
 
     init {
         initializeGameScore()
-        onStartTracking()
     }
 
     val scoresString = Transformations.map(score) { score ->
         score.toString()
+    }
+
+    fun computeIQ(iq: Int) : Int {
+        return when (iq) {
+            in 0..2 -> 90
+            in 3..4 -> 100
+            in 5..6 -> 110
+            in 7..8 -> 120
+            in 9..10 -> 140
+            else -> 0
+        }
     }
 
     private fun initializeGameScore() {
@@ -43,11 +53,12 @@ class ResultViewModel( val database: GameScoreDatabaseDao, application: Applicat
         viewModelJob.cancel()
     }
 
-    fun onStartTracking() {
+    fun insertScore(username: String, score: Int) {
         uiScope.launch {
-            val newNight = GameScore()
-//            newNight.username = "What da duck"
-            insert(newNight)
+            val newScore = GameScore()
+            newScore.username = username
+            newScore.score = score
+            insert(newScore)
             gameScore.value = getGameScoreFromDatabase()
         }
     }
@@ -69,8 +80,6 @@ class ResultViewModel( val database: GameScoreDatabaseDao, application: Applicat
             database.insert(score)
         }
     }
-
-
 }
 
 

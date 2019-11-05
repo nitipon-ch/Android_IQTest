@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import buu.informatics.s59160575.iqtest.R
+import buu.informatics.s59160575.iqtest.database.GameScoreDatabase
 import buu.informatics.s59160575.iqtest.databinding.FragmentScoreBinding
 
 /**
@@ -16,6 +18,7 @@ import buu.informatics.s59160575.iqtest.databinding.FragmentScoreBinding
  */
 class HighScoreFragment : Fragment() {
     private lateinit var binding: FragmentScoreBinding
+    private lateinit var highScoreViewModel: HighScoreViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,9 +27,24 @@ class HighScoreFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_score,container,false)
+
+        val application = requireNotNull(this.activity).application
+
+        val dataSource = GameScoreDatabase.getInstance(application).gameScoreDatabaseDao
+
+        val viewModelFactory = HighScoreViewModelFactory(dataSource, application)
+
+        highScoreViewModel = ViewModelProviders.of(this, viewModelFactory).get(HighScoreViewModel::class.java)
+
+        binding.lifecycleOwner = this
+
+        binding.highScoreViewModel = highScoreViewModel
+
         binding.mainMennuButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_scoreFragment_to_startFragment)
         }
+
+
         return binding.root
     }
 
