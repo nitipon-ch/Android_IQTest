@@ -19,7 +19,7 @@ class HighScoreAdapter: RecyclerView.Adapter<TextItemViewHolder>()  {
 
     override fun onBindViewHolder(holder: TextItemViewHolder, position: Int) {
         val item = data[position]
-        holder.textView.text = item.username+"            "+item.score
+        holder.textView.text = "      "+item.username+"            "+item.score
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TextItemViewHolder {
