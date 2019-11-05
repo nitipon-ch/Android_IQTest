@@ -17,7 +17,7 @@ class HighScoreViewModel (val database: GameScoreDatabaseDao, application: Appli
 
     private var gameScore = MutableLiveData<GameScore?>()
 
-    private val score = database.getAllGameScore()
+    val score = database.getAllGameScore()
 
 
     private val _name = MutableLiveData<List<GameScore>>()

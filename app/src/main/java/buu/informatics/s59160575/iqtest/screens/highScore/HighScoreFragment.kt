@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import buu.informatics.s59160575.iqtest.R
@@ -34,11 +35,22 @@ class HighScoreFragment : Fragment() {
 
         val viewModelFactory = HighScoreViewModelFactory(dataSource, application)
 
+
+
         highScoreViewModel = ViewModelProviders.of(this, viewModelFactory).get(HighScoreViewModel::class.java)
 
         binding.lifecycleOwner = this
 
         binding.highScoreViewModel = highScoreViewModel
+
+        val adapter = HighScoreAdapter()
+        binding.scoreList.adapter = adapter
+
+        highScoreViewModel.score.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.data = it
+            }
+        })
 
         binding.mainMennuButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_scoreFragment_to_startFragment)

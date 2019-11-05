@@ -4,7 +4,9 @@ import android.content.res.Resources
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
+import android.widget.TextView
 import androidx.core.text.HtmlCompat
+import androidx.recyclerview.widget.RecyclerView
 import buu.informatics.s59160575.iqtest.database.GameScore
 
 fun formatScore(scores: List<GameScore>): Spanned {
@@ -31,3 +33,5 @@ fun formatScore(scores: List<GameScore>): Spanned {
         return HtmlCompat.fromHtml(sb.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 }
+
+class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)
