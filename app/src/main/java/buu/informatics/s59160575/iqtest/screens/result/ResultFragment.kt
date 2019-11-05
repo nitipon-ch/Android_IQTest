@@ -43,7 +43,7 @@ class ResultFragment : Fragment() {
 
         binding.setLifecycleOwner(this)
 
-        binding.resultViewModelFragment = resultViewModel
+        binding.resultViewModel = resultViewModel
 
         setScoreText()
         binding.mainMenuResultButton.setOnClickListener { view ->
