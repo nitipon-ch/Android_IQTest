@@ -25,4 +25,6 @@ interface GameScoreDatabaseDao {
 
     @Query("SELECT * FROM game_score_table ORDER BY gameId DESC")
     fun getAllGameScore(): LiveData<List<GameScore>>
+
+
 }

@@ -46,8 +46,21 @@ class ResultViewModel( val database: GameScoreDatabaseDao, application: Applicat
     fun onStartTracking() {
         uiScope.launch {
             val newNight = GameScore()
+//            newNight.username = "What da duck"
             insert(newNight)
             gameScore.value = getGameScoreFromDatabase()
+        }
+    }
+
+    fun clearDatabase(){
+        uiScope.launch {
+            clear()
+        }
+    }
+
+    private suspend fun clear() {
+        withContext(Dispatchers.IO) {
+            database.clear()
         }
     }
 
