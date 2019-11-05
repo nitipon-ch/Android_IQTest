@@ -12,15 +12,22 @@ class ResultViewModel( val database: GameScoreDatabaseDao, application: Applicat
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private var tonight = MutableLiveData<GameScore?>()
+    private var gameScore = MutableLiveData<GameScore?>()
+
+    private val score = database.getAllGameScore()
 
     init {
         initializeGameScore()
+        onStartTracking()
+    }
+
+    val scoresString = Transformations.map(score) { score ->
+        score.toString()
     }
 
     private fun initializeGameScore() {
         uiScope.launch {
-            tonight.value = getGameScoreFromDatabase()
+            gameScore.value = getGameScoreFromDatabase()
         }
     }
 
@@ -35,6 +42,22 @@ class ResultViewModel( val database: GameScoreDatabaseDao, application: Applicat
         super.onCleared()
         viewModelJob.cancel()
     }
+
+    fun onStartTracking() {
+        uiScope.launch {
+            val newNight = GameScore()
+            insert(newNight)
+            gameScore.value = getGameScoreFromDatabase()
+        }
+    }
+
+    private suspend fun insert(score: GameScore) {
+        withContext(Dispatchers.IO) {
+            database.insert(score)
+        }
+    }
+
+
 }
 
 
