@@ -30,4 +30,5 @@
     <string name="num_question_format">Question : %s / 10</string>
     <string name="hey_text">Hey!!</string>
     <string name="high_score_text">HIGH SCORE BOARD</string>
+    <string name="img_start">imgstart</string>
 </resources>

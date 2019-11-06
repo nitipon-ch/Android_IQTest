@@ -18,7 +18,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/brain" />
+            app:srcCompat="@drawable/brain"
+            android:contentDescription="@string/img_start" />
 
         <TextView
             android:id="@+id/startText"
