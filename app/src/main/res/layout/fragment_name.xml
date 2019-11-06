@@ -39,7 +39,7 @@
             android:paddingStart="50dp"
             android:paddingEnd="50dp"
             android:textAlignment="center"
-            android:maxLength="10"
+            android:maxLength="7"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
